@@ -9,7 +9,6 @@ export default function Home() {
         <title>Pomodoro</title>
         <meta name="description" content="Pomodoro time manager" />
       </Head>
-      {/* <Header /> */}
       <Timer />
     </div>
   );
