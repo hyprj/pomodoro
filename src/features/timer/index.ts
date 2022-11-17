@@ -1,5 +1,5 @@
 import { Modes } from "./modes/Modes";
 import { Clock } from "./clock/Clock";
-import { ActionBtn } from "./actionBtn/ActionBtn";
+import { ActionButton } from "./ActionButton/ActionButton";
 
-export { Modes, Clock, ActionBtn };
+export { Modes, Clock, ActionButton };

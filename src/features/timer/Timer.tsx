@@ -1,11 +1,11 @@
-import { Modes, Clock, ActionBtn } from "./index";
+import { Modes, Clock, ActionButton } from "./index";
 
 export const Timer = () => {
   return (
-    <div className="w-96 bg-red-500">
+    <div className="bg-white/10 py-6 max-w-md w-full rounded-md flex flex-col items-center text-gray-100">
       <Modes />
       <Clock />
-      <ActionBtn />
+      <ActionButton />
     </div>
   );
 };
