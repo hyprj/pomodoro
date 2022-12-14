@@ -1,0 +1,24 @@
+import { ModalContainer } from "./components/ModalContainer";
+import { ModalContent } from "./components/ModalContent";
+import { ModalFooter } from "./components/ModalFooter";
+import { ModalHeader } from "./components/ModalHeader";
+import { ModalOverlay } from "./components/ModalOverlay";
+
+interface Props {
+  toggleModal: () => void;
+  children: React.ReactNode;
+  title: string;
+}
+
+export const Modal = ({ toggleModal, children, title }: Props) => {
+  return (
+    <>
+      <ModalOverlay toggleModal={toggleModal} />
+      <ModalContainer>
+        <ModalHeader title={title} toggleModal={toggleModal} />
+        <ModalContent>{children}</ModalContent>
+        <ModalFooter toggleModal={toggleModal}></ModalFooter>
+      </ModalContainer>
+    </>
+  );
+};

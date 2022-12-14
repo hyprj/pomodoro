@@ -1,18 +1,17 @@
-import { Header } from "@components/ui/Header";
-import { PageHead } from "@components/Head/PageHead";
-import { StoreProvider } from "@context/StoreProvider";
-import { Timer } from "@features/timer/Timer";
+import Head from "next/head";
+import { StoreProvider } from "src/common/context/StoreProvider";
+import { PomodoroWrapper } from "src/common/components/ui/PomodoroWrapper";
 
 export default function Home() {
   return (
     <>
-      <PageHead />
-      <div className="flex flex-col justify-start items-center min-h-screen bg-app-bg-pomodoro px-2">
-        <StoreProvider>
-          <Header />
-          <Timer />
-        </StoreProvider>
-      </div>
+      <Head>
+        <title>Pomodoro</title>
+        <meta name="description" content="Pomodoro time manager" />
+      </Head>
+      <StoreProvider>
+        <PomodoroWrapper />
+      </StoreProvider>
     </>
   );
 }
