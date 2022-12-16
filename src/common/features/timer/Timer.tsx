@@ -1,18 +1,18 @@
-import { useTimer } from "@features/timer/hooks/useTimer";
+import { useTimer } from "@context/timer/TimerContext";
 import { ActionButton } from "./ActionButton/ActionButton";
 import { Clock } from "./clock/Clock";
 import { Modes } from "./modes/Modes";
 
 export const Timer = () => {
-  const { timer, handleChangeMode, toggle, isLoaded } = useTimer();
+  const { timer, toggle, changeMode } = useTimer();
   const { mode, isExecuting, timeLeft } = timer;
 
-  return isLoaded ? (
+  return (
     <div className="bg-white/10 py-6 max-w-md mt-12 w-full rounded-md flex flex-col items-center text-gray-100 animate-onLoad">
       <>
         <Modes
           selected={mode}
-          changeMode={handleChangeMode}
+          changeMode={changeMode}
           isExecuting={isExecuting}
         />
         <Clock timeLeft={timeLeft} />
@@ -20,7 +20,5 @@ export const Timer = () => {
         <audio id="tick" src="tick.wav" />
       </>
     </div>
-  ) : (
-    ""
   );
 };

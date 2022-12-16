@@ -1,14 +1,14 @@
-import { TimerMode } from "@customTypes/types";
+import { Mode } from "@utils/constants";
 import { ModeButton } from "./ModeButton";
 
 interface Modes {
-  selected: TimerMode;
-  changeMode: (mode: TimerMode) => void;
+  selected: Mode;
+  changeMode: (mode: Mode) => void;
   isExecuting: boolean;
 }
 
 export const Modes = ({ selected, changeMode, isExecuting }: Modes) => {
-  const handleClick = (mode: TimerMode) => {
+  const handleClick = (mode: Mode) => {
     if (isExecuting && selected !== mode) {
       const shouldChange = confirm(
         "The timer is still running, are you sure you want to switch?"

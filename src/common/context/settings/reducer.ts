@@ -1,7 +1,23 @@
+import { Settings } from "@utils/constants";
+
 const SECONDS_IN_MINUTE = 60;
 
-export const reducer = (state, action) => {
+type ActionType =
+  | "HANDLE_LENGTH_POMODORO"
+  | "HANDLE_LENGTH_SHORT_BREAK"
+  | "HANDLE_LENGTH_LONG_BREAK"
+  | "AUTO_START_BREAK"
+  | "AUTO_START_POMODOROS"
+  | "INIT_FROM_STORAGE"
+  | "TOGGLE_DARK_MODE";
+
+type Action = { type: ActionType; payload?: any };
+
+export const reducer = (state: Settings, action: Action) => {
   switch (action.type) {
+    case "INIT_FROM_STORAGE": {
+      return action.payload;
+    }
     case "HANDLE_LENGTH_POMODORO": {
       return {
         ...state,
@@ -30,6 +46,12 @@ export const reducer = (state, action) => {
       return {
         ...state,
         autoStartPomodoros: action.payload,
+      };
+    }
+    case "TOGGLE_DARK_MODE": {
+      return {
+        ...state,
+        isDarkMode: !state.isDarkMode,
       };
     }
     default: {

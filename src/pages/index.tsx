@@ -1,6 +1,9 @@
 import Head from "next/head";
-import { StoreProvider } from "src/common/context/StoreProvider";
-import { PomodoroWrapper } from "src/common/components/ui/PomodoroWrapper";
+
+import { Tasks } from "@features/tasks/Tasks";
+import { Timer } from "@features/timer/Timer";
+import { Header } from "@components/layouts/Header";
+import { PageLayout } from "@components/layouts/PageLayout";
 
 export default function Home() {
   return (
@@ -9,9 +12,11 @@ export default function Home() {
         <title>Pomodoro</title>
         <meta name="description" content="Pomodoro time manager" />
       </Head>
-      <StoreProvider>
-        <PomodoroWrapper />
-      </StoreProvider>
+      <PageLayout>
+        <Header />
+        <Timer />
+        {/* <Tasks /> */}
+      </PageLayout>
     </>
   );
 }

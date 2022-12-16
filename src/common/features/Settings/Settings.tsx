@@ -1,8 +1,8 @@
 import { Modal } from "@components/modal/Modal";
 import { InputNumber } from "@components/ui/InputNumber";
 import { ToggleButton } from "@components/ui/ToggleButton";
-import { useSettings } from "@features/Settings/hooks/useSettings";
-import { useState } from "react";
+import { useSettings } from "@context/settings/SettingsContext";
+import { useTimer } from "@context/timer/TimerContext";
 import { Setting } from "./components/Setting";
 
 interface Props {
@@ -10,11 +10,8 @@ interface Props {
 }
 
 export const Settings = ({ toggleModal }: Props) => {
-  const { settings, dispatch, isValid, onSubmit } = useSettings();
-  const [isChecked, setIsChecked] = useState(false);
-  const toggle = () => {
-    setIsChecked((prev) => !prev);
-  };
+  const { settings, dispatch } = useSettings();
+  const { dispatch: dispatchTimer } = useTimer();
 
   return (
     <Modal title="App settings" toggleModal={toggleModal}>
@@ -23,12 +20,19 @@ export const Settings = ({ toggleModal }: Props) => {
           <InputNumber
             label="pomodoro"
             value={settings.pomodoroLength / 60}
-            onChange={(e) =>
+            onChange={(e) => {
               dispatch({
                 type: "HANDLE_LENGTH_POMODORO",
                 payload: e.target.value,
-              })
-            }
+              });
+              dispatchTimer({
+                type: "UPDATE_TIME_LEFT",
+                payload: {
+                  mode: "pomodoro",
+                  timeLeft: Number(e.target.value) * 60,
+                },
+              });
+            }}
           />
           <InputNumber
             label="short break"

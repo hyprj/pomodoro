@@ -1,15 +1,3 @@
-import { useStore } from "@hooks/useStore";
-import { useEffect, useReducer } from "react";
-import { defaultTasks } from "src/data/default-config";
-import { ITask } from "../components/Task";
-
-export interface Tasks {
-  tasks: ITask[];
-  selectedId: number;
-  selectedEditId: null;
-  nextUuid: number;
-}
-
 enum TaskActionType {
   HANDLE_TASK_CLICK = "HANDLE_TASK_CLICK",
   SET_TASK_TO_EDIT = "SET_TASK_TO_EDIT",
@@ -22,7 +10,7 @@ enum TaskActionType {
 
 type TaskAction = { type: TaskActionType; payload: any };
 
-const reducer = (state: Tasks, action: TaskAction) => {
+export const reducer = (state: Tasks, action: TaskAction) => {
   switch (action.type) {
     case "HANDLE_TASK_CLICK": {
       const clickedTask = action.payload;
@@ -74,25 +62,4 @@ const reducer = (state: Tasks, action: TaskAction) => {
       return state;
     }
   }
-};
-
-export const useTasks = () => {
-  const { state, dispatch: dispatchStore } = useStore();
-  const [tasks, dispatch] = useReducer(reducer, defaultTasks);
-  const summary = 10;
-
-  useEffect(
-    () =>
-      dispatch({
-        type: TaskActionType.LOAD_FROM_LOCAL_STORAGE,
-        payload: { ...state.tasks, selectedEditId: null },
-      }),
-    []
-  );
-
-  useEffect(() => {
-    dispatchStore({ type: "UPDATE_TASKS", payload: tasks });
-  }, [tasks]);
-
-  return { tasks, summary, dispatch };
 };
