@@ -13,11 +13,11 @@ export const useTheme = () => {
   const { settings, dispatch } = useSettings();
   const { timer } = useTimer();
   const { isDarkMode } = settings;
-  const color = getColor(isDarkMode, timer.mode);
+  const primaryColor = getColor(isDarkMode, timer.mode);
 
   const toggleDarkMode = () => {
     dispatch({ type: "TOGGLE_DARK_MODE" });
   };
 
-  return { color, isDarkMode, toggleDarkMode };
+  return { primaryColor, isDarkMode, toggleDarkMode };
 };
