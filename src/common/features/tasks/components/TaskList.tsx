@@ -1,11 +1,11 @@
-import { Dispatch } from "react";
-import { Tasks } from "../Tasks";
+import { Tasks } from "@utils/constants";
+import { DispatchTasks } from "../hooks/reducer";
 import { EditTask } from "./EditTask";
-import { ITask, Task } from "./Task";
+import { Task } from "./Task";
 
 interface Props {
   tasks: Tasks;
-  dispatch: Dispatch<any>;
+  dispatch: DispatchTasks;
 }
 
 export const TaskList = ({ tasks, dispatch }: Props) => {

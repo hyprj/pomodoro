@@ -1,11 +1,11 @@
 import { ModalOverlay } from "@components/modal/components/ModalOverlay";
-import { Dispatch } from "react";
+import { ITask } from "@utils/constants";
+import { DispatchTasks } from "../hooks/reducer";
 import { EditTaskForm } from "./EditTaskForm";
-import { ITask } from "./Task";
 
 interface Props {
   task: ITask;
-  dispatch: Dispatch<any>;
+  dispatch: DispatchTasks;
 }
 
 export const EditTask = ({ task, dispatch }: Props) => {

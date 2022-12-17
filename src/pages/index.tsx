@@ -15,7 +15,7 @@ export default function Home() {
       <PageLayout>
         <Header />
         <Timer />
-        {/* <Tasks /> */}
+        <Tasks />
       </PageLayout>
     </>
   );

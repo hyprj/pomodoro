@@ -1,7 +1,7 @@
-import { Dispatch } from "react";
+import { DispatchTasks } from "../hooks/reducer";
 
 interface Props {
-  dispatch: Dispatch<any>;
+  dispatch: DispatchTasks;
 }
 
 export const AddTask = ({ dispatch }: Props) => {

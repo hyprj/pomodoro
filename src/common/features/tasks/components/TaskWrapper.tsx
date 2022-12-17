@@ -1,6 +1,9 @@
+import { MouseEventHandler } from "react";
+
 interface Props {
   isSelected: boolean;
   children: React.ReactNode;
+  onClick: MouseEventHandler<HTMLElement>;
 }
 
 export const TaskWrapper = ({ isSelected, children, onClick }: Props) => {

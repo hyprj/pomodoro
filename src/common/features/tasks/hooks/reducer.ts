@@ -1,16 +1,20 @@
-enum TaskActionType {
-  HANDLE_TASK_CLICK = "HANDLE_TASK_CLICK",
-  SET_TASK_TO_EDIT = "SET_TASK_TO_EDIT",
-  CANCEL_EDITING = "CANCEL_EDITING",
-  SAVE = "SAVE",
-  LOAD_FROM_LOCAL_STORAGE = "LOAD_FROM_LOCAL_STORAGE",
-  DELETE = "DELETE",
-  ADD = "ADD",
-}
+import { ITask, Tasks } from "@utils/constants";
+import { Dispatch } from "react";
 
-type TaskAction = { type: TaskActionType; payload: any };
+type ActionType =
+  | "HANDLE_TASK_CLICK"
+  | "SET_TASK_TO_EDIT"
+  | "CANCEL_EDITING"
+  | "SAVE"
+  | "LOAD_FROM_LOCAL_STORAGE"
+  | "DELETE"
+  | "ADD"
+  | "INIT_FROM_LOCAL_STORAGE";
+type Action = { type: ActionType; payload?: any };
 
-export const reducer = (state: Tasks, action: TaskAction) => {
+export type DispatchTasks = Dispatch<Action>;
+
+export const reducer = (state: Tasks, action: Action) => {
   switch (action.type) {
     case "HANDLE_TASK_CLICK": {
       const clickedTask = action.payload;
@@ -33,9 +37,6 @@ export const reducer = (state: Tasks, action: TaskAction) => {
       updatedTasks[editedTaskId] = action.payload;
       return { ...state, updatedTasks, selectedEditId: null };
     }
-    case "LOAD_FROM_LOCAL_STORAGE": {
-      return { ...action.payload };
-    }
     case "DELETE": {
       const indexToDelete = state.tasks.findIndex(
         (task: ITask) => task.id === action.payload
@@ -57,6 +58,9 @@ export const reducer = (state: Tasks, action: TaskAction) => {
         selectedEditId: state.nextUuid,
         nextUuid: state.nextUuid + 1,
       };
+    }
+    case "INIT_FROM_LOCAL_STORAGE": {
+      return action.payload;
     }
     default: {
       return state;

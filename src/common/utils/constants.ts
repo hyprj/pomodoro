@@ -2,7 +2,7 @@ export const IS_SSR = typeof window === "undefined" ? true : false;
 
 export type Mode = "pomodoro" | "shortBreak" | "longBreak";
 
-export type Settings = {
+export interface Settings {
   pomodoroLength: number;
   shortBreakLength: number;
   longBreakLength: number;
@@ -10,7 +10,7 @@ export type Settings = {
   autoStartPomodoros: boolean;
   longBreakInterval: number;
   isDarkMode: boolean;
-};
+}
 
 export const defaultSettings: Settings = {
   pomodoroLength: 3,
@@ -22,13 +22,13 @@ export const defaultSettings: Settings = {
   isDarkMode: false,
 };
 
-export type Timer = {
+export interface Timer {
   timeLeft: number;
   mode: Mode;
   donePomodoros: number;
   isExecuting: boolean;
   isActive: boolean;
-};
+}
 
 export const defaultTimer: Timer = {
   timeLeft: 3,
@@ -38,11 +38,35 @@ export const defaultTimer: Timer = {
   isActive: false,
 };
 
-export const defaultTasks = {
+export interface ITask {
+  donePomodoros: number;
+  estPomodoros: number;
+  id: number;
+  title: string;
+}
+
+export interface Tasks {
+  tasks: ITask[];
+  selectedId: number;
+  selectedEditId: null;
+  nextUuid: number;
+  summary: {
+    estimated: number;
+    done: number;
+    finishAt: Date;
+  };
+}
+
+export const defaultTasks: Tasks = {
   tasks: [],
   selectedId: 0,
   selectedEditId: null,
   nextUuid: 0,
+  summary: {
+    estimated: 0,
+    done: 0,
+    finishAt: new Date(0),
+  },
 };
 
 export type StoredDataValues =

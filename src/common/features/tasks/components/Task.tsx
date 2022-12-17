@@ -1,13 +1,7 @@
 import { Bars3Icon } from "@heroicons/react/24/solid";
+import { ITask } from "@utils/constants";
 import { Dispatch } from "react";
 import { TaskWrapper } from "./TaskWrapper";
-
-export interface ITask {
-  donePomodoros: number;
-  estPomodoros: number;
-  id: number;
-  title: string;
-}
 
 interface Props {
   task: ITask;

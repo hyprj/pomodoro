@@ -1,11 +1,11 @@
 import { Button } from "@components/ui/Button";
-import { title } from "process";
-import React, { Dispatch, useRef, useState } from "react";
-import { ITask } from "./Task";
+import { ITask } from "@utils/constants";
+import React, { useRef, useState } from "react";
+import { DispatchTasks } from "../hooks/reducer";
 
 interface Props {
   task: ITask;
-  dispatch: Dispatch<any>;
+  dispatch: DispatchTasks;
   cancel: () => void;
 }
 
@@ -52,7 +52,7 @@ export const EditTaskForm = ({ task, dispatch, cancel }: Props) => {
       <div className="bg-gray-200 rounded-b px-6 py-3 flex items-center justify-between">
         <button
           className="hover:underline font-md text-gray-600 font-semibold mr-"
-          onClick={() => dispatch({ type: "DELETE", paylaod: task.id })}
+          onClick={() => dispatch({ type: "DELETE", payload: task.id })}
         >
           Delete
         </button>
