@@ -1,6 +1,6 @@
 A pomofocus.io inspired app for better time management.
 
-live demo
+[live demo](https://pomodoro.herokuapp.com/)
 
 ### techstack:
 
@@ -12,6 +12,7 @@ live demo
 
 - persistent data with local storage
 - dark mode
+- customizable app settings
 
 ### Things I want to add in nearest future
 
@@ -20,3 +21,4 @@ live demo
 ### Things I need to fix
 
 - some colors bugs
+- tasks section paddings, colors
