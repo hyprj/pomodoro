@@ -25,8 +25,9 @@ export const EditTaskForm = ({ task, dispatch, cancel }: Props) => {
     >
       <div className="px-6 py-8">
         <input
-          className="text-3xl bg-inherit mb-6"
+          className="text-md p-2 w-full bg-inherit mb-6 bg-gray-200 rounded"
           defaultValue={titleRef.current}
+          placeholder="title"
           onChange={(e) => (titleRef.current = e.target.value)}
           type="text"
           maxLength={30}
