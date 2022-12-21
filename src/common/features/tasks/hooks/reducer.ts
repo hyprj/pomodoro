@@ -27,7 +27,8 @@ export const reducer = (state: Tasks, action: Action) => {
       return { ...state, selectedEditId: action.payload.id };
     }
     case "CANCEL_EDITING": {
-      return { ...state, selectedEditId: null };
+      const tasks = state.tasks.slice(0, -1);
+      return { ...state, tasks, selectedEditId: null };
     }
     case "SAVE": {
       const editedTaskId = state.tasks.findIndex(

@@ -14,7 +14,6 @@ export const useTasks = () => {
 
   useEffect(() => {
     if (!isInitialized) return;
-    console.log("im saving ", tasks);
     saveData("tasks", tasks);
   }, [isInitialized, tasks]);
 
