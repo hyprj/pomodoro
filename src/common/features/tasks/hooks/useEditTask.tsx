@@ -20,7 +20,7 @@ export const useEditTask = (task: ITask, dispatch: DispatchTasks) => {
   };
 
   const cancelEditing = () => {
-    if (title === task.title || estPomodoros === task.estPomodoros) {
+    if (title === task.title && estPomodoros === task.estPomodoros) {
       dispatch({ type: "CANCEL_EDITING" });
     } else {
       promptShouldCancel();
