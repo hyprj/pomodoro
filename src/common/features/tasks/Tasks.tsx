@@ -11,11 +11,15 @@ export const Tasks = () => {
 
   return (
     <div className="w-[min(100%,28rem)] my-12 text-white">
-      <SelectedTaskSummary
-        title={
-          tasks.tasks.find((task: ITask) => task.id === tasks.selectedId)?.title
-        }
-      />
+      {tasks.selectedId !== null && (
+        <SelectedTaskSummary
+          title={
+            tasks.tasks.find((task: ITask) => task.id === tasks.selectedId)
+              ?.title
+          }
+        />
+      )}
+
       <TasksHeader />
       <TaskList tasks={tasks} dispatch={dispatch} />
       <AddTask dispatch={dispatch} />

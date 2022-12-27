@@ -8,16 +8,22 @@ interface Props {
   toggleModal: () => void;
   children: React.ReactNode;
   title: string;
+  disabled?: boolean;
 }
 
-export const Modal = ({ toggleModal, children, title }: Props) => {
+export const Modal = ({
+  toggleModal,
+  children,
+  title,
+  disabled = false,
+}: Props) => {
   return (
     <>
       <ModalOverlay toggleModal={toggleModal} />
       <ModalContainer>
         <ModalHeader title={title} toggleModal={toggleModal} />
         <ModalContent>{children}</ModalContent>
-        <ModalFooter toggleModal={toggleModal}></ModalFooter>
+        <ModalFooter toggleModal={toggleModal} disabled={disabled} />
       </ModalContainer>
     </>
   );

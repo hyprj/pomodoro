@@ -10,6 +10,7 @@ export interface Settings {
   autoStartPomodoros: boolean;
   longBreakInterval: number;
   isDarkMode: boolean;
+  isValid: boolean;
 }
 
 export const defaultSettings: Settings = {
@@ -20,6 +21,7 @@ export const defaultSettings: Settings = {
   autoStartPomodoros: false,
   longBreakInterval: 4,
   isDarkMode: false,
+  isValid: true,
 };
 
 export interface Timer {
@@ -47,7 +49,7 @@ export interface ITask {
 
 export interface Tasks {
   tasks: ITask[];
-  selectedId: number;
+  selectedId: number | null;
   selectedEditId: null;
   nextUuid: number;
   summary: {
@@ -59,7 +61,7 @@ export interface Tasks {
 
 export const defaultTasks: Tasks = {
   tasks: [],
-  selectedId: 0,
+  selectedId: null,
   selectedEditId: null,
   nextUuid: 0,
   summary: {

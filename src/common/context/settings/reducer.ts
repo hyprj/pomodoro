@@ -1,4 +1,5 @@
 import { Settings } from "@utils/constants";
+import { Dispatch } from "react";
 
 const SECONDS_IN_MINUTE = 60;
 
@@ -13,7 +14,11 @@ type ActionType =
 
 type Action = { type: ActionType; payload?: any };
 
+export type DispatchSettings = Dispatch<Settings | unknown>;
+
 export const reducer = (state: Settings, action: Action) => {
+  const length = Number(action?.payload) === 0 ? "" : Number(action?.payload);
+  const isValid = length !== "";
   switch (action.type) {
     case "INIT_FROM_STORAGE": {
       return action.payload;
@@ -21,19 +26,22 @@ export const reducer = (state: Settings, action: Action) => {
     case "HANDLE_LENGTH_POMODORO": {
       return {
         ...state,
-        pomodoroLength: Number(action.payload * SECONDS_IN_MINUTE),
+        pomodoroLength: length,
+        isValid,
       };
     }
     case "HANDLE_LENGTH_SHORT_BREAK": {
       return {
         ...state,
-        shortBreakLength: Number(action.payload * SECONDS_IN_MINUTE),
+        shortBreakLength: length,
+        isValid,
       };
     }
     case "HANDLE_LENGTH_LONG_BREAK": {
       return {
         ...state,
-        longBreakLength: Number(action.payload * SECONDS_IN_MINUTE),
+        longBreakLength: length,
+        isValid,
       };
     }
     case "AUTO_START_BREAK": {

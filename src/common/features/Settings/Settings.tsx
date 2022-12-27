@@ -3,6 +3,7 @@ import { InputNumber } from "@components/ui/InputNumber";
 import { ToggleButton } from "@components/ui/ToggleButton";
 import { useSettings } from "@context/settings/SettingsContext";
 import { useTimer } from "@context/timer/TimerContext";
+import { useState } from "react";
 import { Setting } from "./components/Setting";
 
 interface Props {
@@ -12,15 +13,21 @@ interface Props {
 export const Settings = ({ toggleModal }: Props) => {
   const { settings, dispatch } = useSettings();
   const { dispatch: dispatchTimer } = useTimer();
+  const [backupSettings] = useState(settings);
 
   return (
-    <Modal title="App settings" toggleModal={toggleModal}>
+    <Modal
+      title="App settings"
+      toggleModal={toggleModal}
+      disabled={!settings.isValid}
+    >
       <Setting title="Time (minutes)" isTitleFullWidth={true}>
         <div className="flex w-full justify-between">
           <InputNumber
             label="pomodoro"
-            value={settings.pomodoroLength / 60}
+            value={settings.pomodoroLength}
             onChange={(e) => {
+              console.log("XDD", e.target.value);
               dispatch({
                 type: "HANDLE_LENGTH_POMODORO",
                 payload: e.target.value,
@@ -31,6 +38,13 @@ export const Settings = ({ toggleModal }: Props) => {
                   mode: "pomodoro",
                   timeLeft: Number(e.target.value) * 60,
                 },
+              });
+            }}
+            onBlur={() => {
+              console.log("xd");
+              dispatch({
+                type: "ON_BLUR_POMODORO_LENGTH_VALIDATION",
+                payload: backupSettings.pomodoroLength,
               });
             }}
           />

@@ -5,9 +5,9 @@ import {
   useReducer,
   useState,
 } from "react";
-import { reducer } from "./reducer";
+import { DispatchSettings, reducer } from "./reducer";
 import { getData, saveData } from "../../utils/localStorage";
-import { defaultSettings } from "@utils/constants";
+import { defaultSettings, Settings } from "@utils/constants";
 
 interface Props {
   children: React.ReactNode;
@@ -18,6 +18,7 @@ const SettingsContext = createContext<undefined | any>(undefined);
 export const SettingsProvider = ({ children }: Props) => {
   const [settings, dispatch] = useReducer(reducer, defaultSettings);
   const [isInitialized, setIsInitialized] = useState(false);
+
   useEffect(() => {
     dispatch({ type: "INIT_FROM_STORAGE", payload: getData("settings") });
     setIsInitialized(true);
@@ -25,6 +26,7 @@ export const SettingsProvider = ({ children }: Props) => {
 
   useEffect(() => {
     if (!isInitialized) return;
+    if (!settings.isValid) return;
     saveData("settings", settings);
   }, [settings, isInitialized]);
 
@@ -40,5 +42,5 @@ export const useSettings = () => {
   if (!context) {
     throw new Error("useSettings must be used within a SettingsProvider");
   }
-  return context;
+  return context as { settings: Settings; dispatch: DispatchSettings };
 };
