@@ -1,6 +1,6 @@
+import { DispatchTasks } from "@context/tasks/reducer";
 import { ITask } from "@utils/constants";
 import { useState } from "react";
-import { DispatchTasks } from "./reducer";
 
 export const useEditTask = (task: ITask, dispatch: DispatchTasks) => {
   const [title, setTitle] = useState(task.title);

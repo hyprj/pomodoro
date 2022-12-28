@@ -1,7 +1,7 @@
 import { ModalOverlay } from "@components/modal/components/ModalOverlay";
 import { Button } from "@components/ui/Button";
+import { DispatchTasks } from "@context/tasks/reducer";
 import { ITask } from "@utils/constants";
-import { DispatchTasks } from "../hooks/reducer";
 import { useEditTask } from "../hooks/useEditTask";
 
 interface Props {
@@ -74,7 +74,7 @@ export const EditTask = ({ task, dispatch }: Props) => {
                   payload: {
                     ...task,
                     title: form.title,
-                    estPomodoros: form.setEstPomodoros,
+                    estPomodoros: form.estPomodoros,
                   },
                 })
               }

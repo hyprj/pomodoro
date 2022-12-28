@@ -1,4 +1,5 @@
 import { SettingsProvider } from "./settings/SettingsContext";
+import { TasksProvider } from "./tasks/TasksContext";
 import { TimerProvider } from "./timer/TimerContext";
 
 interface Props {
@@ -8,7 +9,9 @@ interface Props {
 export const AppContextProvider = ({ children }: Props) => {
   return (
     <SettingsProvider>
-      <TimerProvider>{children}</TimerProvider>
+      <TasksProvider>
+        <TimerProvider>{children}</TimerProvider>
+      </TasksProvider>
     </SettingsProvider>
   );
 };

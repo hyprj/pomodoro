@@ -1,10 +1,12 @@
 import { ITask } from "@utils/constants";
+import { useEffect } from "react";
 import { AddTask } from "./components/AddTask";
 import { SelectedTaskSummary } from "./components/SelectedTaskSummary";
 import { TaskList } from "./components/TaskList";
 import { TasksHeader } from "./components/TasksHeader";
 import { TasksSummary } from "./components/TasksSummary";
-import { useTasks } from "./hooks/useTasks";
+// import { useTasks } from "./hooks/useTasks";
+import { useTasks } from "@context/tasks/TasksContext";
 
 export const Tasks = () => {
   const { tasks, dispatch } = useTasks();

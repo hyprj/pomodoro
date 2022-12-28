@@ -9,12 +9,13 @@ type ActionType =
   | "LOAD_FROM_LOCAL_STORAGE"
   | "DELETE"
   | "ADD"
-  | "INIT_FROM_LOCAL_STORAGE";
+  | "INIT_FROM_STORAGE"
+  | "ADD_DONE_POMODORO";
 type Action = { type: ActionType; payload?: any };
 
 export type DispatchTasks = Dispatch<Action>;
 
-export const reducer = (state: Tasks, action: Action) => {
+export const reducer = (state: Tasks, action: Action): Tasks => {
   switch (action.type) {
     case "HANDLE_TASK_CLICK": {
       const clickedTask = action.payload;
@@ -36,7 +37,7 @@ export const reducer = (state: Tasks, action: Action) => {
       );
       const updatedTasks = state.tasks;
       updatedTasks[editedTaskId] = action.payload;
-      return { ...state, updatedTasks, selectedEditId: null };
+      return { ...state, tasks: updatedTasks, selectedEditId: null };
     }
     case "DELETE": {
       const indexToDelete = state.tasks.findIndex(
@@ -44,7 +45,7 @@ export const reducer = (state: Tasks, action: Action) => {
       );
       const updatedTasks = state.tasks;
       updatedTasks.splice(indexToDelete, 1);
-      return { ...state, updatedTasks };
+      return { ...state, tasks: updatedTasks };
     }
     case "ADD": {
       const newTask = {
@@ -60,8 +61,16 @@ export const reducer = (state: Tasks, action: Action) => {
         nextUuid: state.nextUuid + 1,
       };
     }
-    case "INIT_FROM_LOCAL_STORAGE": {
+    case "INIT_FROM_STORAGE": {
       return action.payload;
+    }
+    case "ADD_DONE_POMODORO": {
+      const tasks = state.tasks.map((task) =>
+        task.id === state.selectedId
+          ? { ...task, donePomodoros: task.donePomodoros + 1 }
+          : task
+      );
+      return { ...state, tasks };
     }
     default: {
       return state;

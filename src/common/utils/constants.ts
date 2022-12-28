@@ -50,7 +50,7 @@ export interface ITask {
 export interface Tasks {
   tasks: ITask[];
   selectedId: number | null;
-  selectedEditId: null;
+  selectedEditId: number | null;
   nextUuid: number;
   summary: {
     estimated: number;

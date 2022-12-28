@@ -1,3 +1,5 @@
+// import { useTasks } from "@features/tasks/hooks/useTasks";
+import { useTasks } from "@context/tasks/TasksContext";
 import { playAudio } from "@utils/audio";
 import { defaultTimer, Mode, Timer } from "@utils/constants";
 import { getData, saveData } from "@utils/localStorage";
@@ -26,6 +28,7 @@ const TimerContext = createContext<undefined | ITimerContext>(undefined);
 
 export const TimerProvider = ({ children }: Props) => {
   const { settings } = useSettings();
+  const { tryAddDonePomodoro } = useTasks();
   const [timer, dispatch] = useReducer(reducer, defaultTimer);
   const [isInitialized, setIsInitialized] = useState(false);
 
@@ -42,11 +45,13 @@ export const TimerProvider = ({ children }: Props) => {
 
   useEffect(() => {
     if (!timer.isExecuting) return;
-    if (timer.timeLeft === 0)
+    if (timer.timeLeft === 0) {
+      if (timer.mode === "pomodoro") tryAddDonePomodoro();
       dispatch({
         type: "END",
         payload: settings,
       });
+    }
     const decrement = setInterval(() => dispatch({ type: "DECREMENT" }), 1000);
     return () => clearInterval(decrement);
   }, [timer.isExecuting, timer.timeLeft]);

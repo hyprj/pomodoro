@@ -27,7 +27,6 @@ export const Settings = ({ toggleModal }: Props) => {
             label="pomodoro"
             value={settings.pomodoroLength}
             onChange={(e) => {
-              console.log("XDD", e.target.value);
               dispatch({
                 type: "HANDLE_LENGTH_POMODORO",
                 payload: e.target.value,

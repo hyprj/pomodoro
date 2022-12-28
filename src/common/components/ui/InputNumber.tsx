@@ -2,11 +2,18 @@ interface Props {
   label?: string;
   value: number;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   min?: number;
   max?: number;
 }
 
-export const InputNumber = ({ value, label, onChange, max = 99 }: Props) => {
+export const InputNumber = ({
+  value,
+  label,
+  onChange,
+  onBlur,
+  max = 99,
+}: Props) => {
   return (
     <div className="flex flex-col">
       <label className="text-sm font-semibold text-gray-500 mb-1">
@@ -18,6 +25,7 @@ export const InputNumber = ({ value, label, onChange, max = 99 }: Props) => {
         max={max}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
       />
     </div>
   );
