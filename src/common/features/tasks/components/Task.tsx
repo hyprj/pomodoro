@@ -2,7 +2,6 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 import { useTheme } from "@hooks/useTheme";
 import { ITask } from "@utils/constants";
 import { Dispatch } from "react";
-import { TaskWrapper } from "./TaskWrapper";
 
 interface Props {
   task: ITask;

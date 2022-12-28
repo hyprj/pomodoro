@@ -1,5 +1,5 @@
+import { DispatchTasks } from "@context/tasks/reducer";
 import { Tasks } from "@utils/constants";
-import { DispatchTasks } from "../hooks/reducer";
 import { EditTask } from "./EditTask";
 import { Task } from "./Task";
 
