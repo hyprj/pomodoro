@@ -14,9 +14,9 @@ export interface Settings {
 }
 
 export const defaultSettings: Settings = {
-  pomodoroLength: 3,
-  shortBreakLength: 3,
-  longBreakLength: 3,
+  pomodoroLength: 1500,
+  shortBreakLength: 300,
+  longBreakLength: 900,
   autoStartBreak: false,
   autoStartPomodoros: false,
   longBreakInterval: 4,
@@ -33,7 +33,7 @@ export interface Timer {
 }
 
 export const defaultTimer: Timer = {
-  timeLeft: 3,
+  timeLeft: 1500,
   mode: "pomodoro",
   donePomodoros: 0,
   isExecuting: false,
