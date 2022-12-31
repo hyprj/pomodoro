@@ -55,6 +55,15 @@ export const TimerProvider = ({ children }: Props) => {
     return () => clearInterval(decrement);
   }, [timer.isExecuting, timer.timeLeft]);
 
+  useEffect(() => {
+    if (!timer.isActive) {
+      dispatch({
+        type: "UPDATE_TIME_LEFT",
+        payload: settings[`${timer.mode}Length`],
+      });
+    }
+  }, [settings, timer.isActive, timer.mode]);
+
   const toggle = () => {
     playAudio("tick");
     dispatch({ type: "TOGGLE" });

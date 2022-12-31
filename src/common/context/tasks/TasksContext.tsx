@@ -32,7 +32,6 @@ export const TasksProvider = ({ children }: Props) => {
 
   useEffect(() => {
     if (!isInitialized) return;
-    console.log("saving, ", tasks);
     saveData("tasks", tasks);
   }, [tasks, isInitialized]);
 

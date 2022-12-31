@@ -46,8 +46,7 @@ export const reducer = (state: Timer, action: Action): Timer => {
       return { ...state, timeLeft: action.payload.timeLeft };
     }
     case "UPDATE_TIME_LEFT": {
-      if (state.isActive || action.payload.mode !== state.mode) return state;
-      return { ...state, timeLeft: action.payload.timeLeft };
+      return { ...state, timeLeft: action.payload };
     }
     default:
       return state;
