@@ -1,6 +1,6 @@
-A pomofocus.io inspired app for better time management.
+A [pomofocus.io](https://pomofocus.io/) inspired app for better time management.
 
-[live demo](https://pomodoro.herokuapp.com/)
+[live demo](https://pomodoro-beta-flax.vercel.app//)
 
 ### techstack:
 
@@ -13,6 +13,7 @@ A pomofocus.io inspired app for better time management.
 - persistent data with local storage
 - dark mode
 - customizable app settings
+- user can add tasks and track them
 
 ### Things I want to add in nearest future
 
@@ -21,4 +22,5 @@ A pomofocus.io inspired app for better time management.
 ### Things I need to fix
 
 - some colors bugs
-- tasks section paddings, colors
+- accessibility
+- tasks summary
