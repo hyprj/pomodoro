@@ -81,7 +81,7 @@ export const appColors = {
     longBreak: "#383B53",
   },
   dark: {
-    pomodoro: "#6d3b47",
+    pomodoro: "#321F28",
     shortBreak: "#282f44",
     longBreak: "#191d32",
   },

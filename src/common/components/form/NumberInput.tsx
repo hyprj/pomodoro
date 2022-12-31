@@ -16,7 +16,7 @@ export const NumberInput = ({
   return (
     <div className="flex flex-col">
       {label && (
-        <label className="text-sm font-semibold text-gray-500 mb-1">
+        <label className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">
           {label}
         </label>
       )}

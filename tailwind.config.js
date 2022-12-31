@@ -6,12 +6,26 @@ module.exports = {
     "./src/common/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
+  safelist: [
+    { pattern: /(bg|text)-pomodoro-(light|dark)/, variants: ["dark"] },
+    { pattern: /(bg|text)-shortBreak-(light|dark)/, variants: ["dark"] },
+    { pattern: /(bg|text)-longBreak-(light|dark)/, variants: ["dark"] },
+  ],
   theme: {
     extend: {
       colors: {
-        "app-bg-pomodoro": "rgba(153, 27, 27, 0.8)",
-        "app-bg-short-break": "#89B0AE",
-        "app-bg-long-break": "#555B6E",
+        pomodoro: {
+          light: "#991b1bcc",
+          dark: "#222831",
+        },
+        shortBreak: {
+          light: "#437F97",
+          dark: "#282f44",
+        },
+        longBreak: {
+          light: "#383B53",
+          dark: "#191d32",
+        },
       },
       keyframes: {
         onLoad: {

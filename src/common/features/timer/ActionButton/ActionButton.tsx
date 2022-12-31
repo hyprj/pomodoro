@@ -15,8 +15,7 @@ export const ActionButton = ({ isExecuting, toggle }: Props) => {
   return (
     <button
       onClick={toggle}
-      className={`bg-gray-100 dark:bg-slate-300 px-14 py-3 w-52  rounded font-bold text-2xl ${stateEffect}`}
-      style={{ color: primaryColor }}
+      className={`bg-gray-100 dark:bg-stone-300 px-14 py-3 w-52 text-${primaryColor}-light dark:text-${primaryColor}-dark  rounded font-bold text-2xl ${stateEffect}`}
     >
       {text}
     </button>

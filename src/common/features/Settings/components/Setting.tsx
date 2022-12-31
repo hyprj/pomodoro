@@ -11,9 +11,9 @@ export const Setting = ({ children, title, multiple = false }: Props) => {
   const innerStyle = multiple ? "flex justify-evenly" : "";
   return (
     <div
-      className={`flex py-6 [&:not(:nth-of-type(1))]:border-t-2 dark:border-gray-500 ${settingStyle}`}
+      className={`flex py-6 [&:not(:nth-of-type(1))]:border-t-2 dark:border-gray-600 ${settingStyle}`}
     >
-      <p className="font-semibold text-gray-700 dark:text-gray-300">{title}</p>
+      <p className="font-semibold text-gray-700 dark:text-gray-200">{title}</p>
       <div className={innerStyle}>{children}</div>
     </div>
   );

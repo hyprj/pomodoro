@@ -7,7 +7,7 @@ interface Props {
 
 export const ModalFooter = ({ toggleModal, disabled = false }: Props) => {
   return (
-    <div className="p-4 w-full flex justify-end bg-slate-200 dark:bg-slate-800/50 rounded-b-lg">
+    <div className="p-4 w-full flex justify-end bg-slate-200 dark:bg-gray-800/30 rounded-b-lg">
       <Button
         variant="black"
         className="font-semibold"

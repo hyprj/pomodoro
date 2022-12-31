@@ -30,7 +30,7 @@ export const Button = ({
       {...props}
       onClick={onClick}
       disabled={isDisabled}
-      className={`rounded py-2 px-4 text-sm ${className} ${variants[variant]}`}
+      className={`rounded py-2 px-4 text-sm dark:text-gray-200 font-semibold ${className} ${variants[variant]}`}
     >
       {children}
     </button>

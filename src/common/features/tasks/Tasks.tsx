@@ -10,7 +10,7 @@ export const Tasks = () => {
   const { tasks, dispatch } = useTasks();
 
   return (
-    <div className="w-[min(100%,28rem)] my-12 text-white">
+    <div className="w-[min(100%,28rem)] my-12 text-white dark:text-stone-300">
       {tasks.selectedId !== null && (
         <SelectedTaskSummary
           title={

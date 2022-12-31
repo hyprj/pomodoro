@@ -18,11 +18,11 @@ export const EditTask = ({ task, dispatch }: Props) => {
     <>
       <ModalOverlay toggleModal={cancelEditing} />
       <div
-        className={`z-30 relative   text-gray-700 w-full bg-gray-50 my-2 rounded border-gray-300`}
+        className={`z-30 relative   text-gray-700 w-full bg-gray-50 dark:bg-gray-700 dark:text-gray-200 my-2 rounded border-gray-300`}
       >
         <div className="px-6 py-8">
           <input
-            className="text-md p-2 w-full bg-inherit mb-6 bg-gray-200 rounded"
+            className="text-md p-2 w-full bg-inherit mb-6 bg-gray-200 dark:bg-gray-500 dark:text-gray-200 rounded"
             placeholder="title"
             value={form.title}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -34,7 +34,7 @@ export const EditTask = ({ task, dispatch }: Props) => {
           <div className="font-semibold">
             <p>Done / Est pomodoros</p>
             <input
-              className="bg-gray-200 text-gray-400 rounded p-2 w-24"
+              className="bg-gray-500 text-gray-400 rounded p-2 w-24"
               value={task.donePomodoros}
               disabled
             />
@@ -46,20 +46,20 @@ export const EditTask = ({ task, dispatch }: Props) => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 form.setEstPomodoros(Number(e.target.value));
               }}
-              className="bg-gray-200 rounded p-2 w-24"
+              className="bg-gray-500 text-gray-200 rounded p-2 w-24"
             />
           </div>
         </div>
-        <div className="bg-gray-200 rounded-b px-6 py-3 flex items-center justify-between">
+        <div className="bg-gray-200 dark:bg-gray-800/30 rounded-b px-6 py-3 flex items-center justify-between">
           <button
-            className="hover:underline font-md text-gray-600 font-semibold mr-"
+            className="hover:underline font-md text-gray-600 dark:text-gray-200 font-semibold mr-"
             onClick={() => dispatch({ type: "DELETE", payload: task.id })}
           >
             Delete
           </button>
           <div>
             <button
-              className="hover:underline font-md text-gray-600 font-semibold mr-6"
+              className="hover:underline font-md text-gray-600 dark:text-gray-200 font-semibold mr-6"
               onClick={cancelEditing}
             >
               Cancel

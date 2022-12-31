@@ -7,8 +7,8 @@ interface Props {
 
 export const ModalHeader = ({ title, toggleModal }: Props) => {
   return (
-    <div className="rounded-t-lg p-4 flex justify-between bg-slate-100 dark:bg-gray-800/50">
-      <h4 className="font-bold text-gray-500  dark:text-slate-300 uppercase">
+    <div className="rounded-t-lg p-4 flex justify-between bg-slate-100 dark:bg-gray-800/30">
+      <h4 className="font-bold text-gray-500  dark:text-stone-200 uppercase">
         {title}
       </h4>
       <button onClick={toggleModal}>

@@ -11,17 +11,19 @@ interface Props {
 export const Task = ({ task, dispatch, isSelected }: Props) => {
   return (
     <div
-      className={`flex justify-around items-center text-gray-700 font-bold w-full h-16 bg-gray-100 my-2 px-4 rounded border-transparent hover:border-gray-300 border-l-8 cursor-pointer ${
-        isSelected ? "bg-yellow-100" : ""
+      className={`flex justify-around items-center text-gray-700 font-bold w-full h-16  my-2 px-4 rounded border-transparent hover:border-black/30 hover:dark:border-stone-500 border-l-8 cursor-pointer  transition-colors duration-500 ease-out ${
+        isSelected
+          ? "bg-white/40 dark:bg-white/80 dark:text-gray-700"
+          : "bg-gray-100 dark:bg-white/10 dark:text-gray-200"
       }`}
       onClick={() => dispatch({ type: "HANDLE_TASK_CLICK", payload: task })}
     >
       <h5 className="grow">{task.title}</h5>
-      <p className="mx-6 text-gray-400">
+      <p className="mx-6">
         {task.donePomodoros}/{task.estPomodoros}
       </p>
       <Bars3Icon
-        className="w-8 h-8 hover:cursor-pointer hover:bg-gray-200 rounded p-1"
+        className="w-8 h-8 hover:cursor-pointer hover:bg-gray-200 hover:dark:bg-stone-500/40 rounded p-1"
         onClick={(e) => {
           e.stopPropagation();
           dispatch({ type: "SET_TASK_TO_EDIT", payload: task });
