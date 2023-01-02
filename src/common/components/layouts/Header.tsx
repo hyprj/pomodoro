@@ -1,4 +1,4 @@
-import { Button } from "src/common/components/ui/Button";
+import { Button } from "@components/ui/Button";
 import { Settings } from "@features/Settings/Settings";
 import { useModal } from "src/common/hooks/useModal";
 import { SwitchThemeButton } from "@components/ui/SwitchThemeButton";
@@ -11,7 +11,9 @@ export const Header = () => {
         <h2 className="font-semibold text-2xl">Pomodoro</h2>
         <nav className="flex  items-center gap-5">
           <SwitchThemeButton />
-          <Button onClick={toggleModal}>settings</Button>
+          <Button onClick={toggleModal} ariaLabel="Go to settings">
+            settings
+          </Button>
         </nav>
       </header>
       {isOpen && <Settings toggleModal={toggleModal} />}

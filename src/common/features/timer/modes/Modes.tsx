@@ -25,18 +25,21 @@ export const Modes = ({ selected, changeMode, isExecuting }: Modes) => {
       <ModeButton
         onClick={() => handleClick("pomodoro")}
         isSelected={selected === "pomodoro"}
+        ariaLabel="Change to pomodoro"
       >
         Pomodoro
       </ModeButton>
       <ModeButton
         onClick={() => handleClick("shortBreak")}
         isSelected={selected === "shortBreak"}
+        ariaLabel="Change to short break"
       >
         Short break
       </ModeButton>
       <ModeButton
         onClick={() => handleClick("longBreak")}
         isSelected={selected === "longBreak"}
+        ariaLabel="Change to long break"
       >
         Long break
       </ModeButton>

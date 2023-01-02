@@ -46,7 +46,7 @@ export const Settings = ({ toggleModal }: Props) => {
                 ? settings.shortBreakLength / 60
                 : settings.shortBreakLength
             }
-            label="pomodoro"
+            label="short break"
             min={1}
             max={99}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,7 +62,7 @@ export const Settings = ({ toggleModal }: Props) => {
                 ? settings.longBreakLength / 60
                 : settings.longBreakLength
             }
-            label="pomodoro"
+            label="long break"
             min={1}
             max={99}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -92,6 +92,8 @@ export const Settings = ({ toggleModal }: Props) => {
         <Setting title="Long break interval">
           <NumberInput
             defaultValue={settings.longBreakInterval}
+            label="long break interval"
+            renderLabel={false}
             min={1}
             max={99}
             onChange={(e) =>

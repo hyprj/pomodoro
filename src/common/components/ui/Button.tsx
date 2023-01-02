@@ -15,15 +15,17 @@ interface Props {
   onClick?: (e?: React.MouseEvent<HTMLElement>) => void;
   isDisabled?: boolean;
   variant?: "default" | "selected" | "unselected" | "black" | "ghost";
+  ariaLabel: string;
 }
 
 export const Button = ({
   children,
   props,
   onClick,
-  className,
+  className = "",
   isDisabled = false,
   variant = "default",
+  ariaLabel,
 }: Props) => {
   return (
     <button
@@ -31,6 +33,7 @@ export const Button = ({
       onClick={onClick}
       disabled={isDisabled}
       className={`rounded py-2 px-4 text-sm dark:text-gray-200 font-semibold ${className} ${variants[variant]}`}
+      aria-label={ariaLabel}
     >
       {children}
     </button>
