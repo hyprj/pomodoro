@@ -46,6 +46,7 @@ export const TimerProvider = ({ children }: Props) => {
     if (!timer.isExecuting) return;
     if (timer.timeLeft === 0) {
       if (timer.mode === "pomodoro") tryAddDonePomodoro();
+      playAudio("tick");
       dispatch({
         type: "END",
         payload: settings,
