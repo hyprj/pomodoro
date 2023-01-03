@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint",
     "test": "jest"
   },
@@ -25,6 +26,7 @@
     "typescript": "4.9.4"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.1.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.2.5",

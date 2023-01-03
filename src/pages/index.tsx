@@ -4,6 +4,7 @@ import { Tasks } from "@features/tasks/Tasks";
 import { Timer } from "@features/timer/Timer";
 import { Header } from "@components/layouts/Header";
 import { PageLayout } from "@components/layouts/PageLayout";
+import { Main } from "@components/layouts/Main";
 
 export default function Home() {
   return (
@@ -14,8 +15,10 @@ export default function Home() {
       </Head>
       <PageLayout>
         <Header />
-        <Timer />
-        <Tasks />
+        <Main>
+          <Timer />
+          <Tasks />
+        </Main>
       </PageLayout>
     </>
   );

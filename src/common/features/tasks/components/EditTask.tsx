@@ -52,6 +52,7 @@ export const EditTask = ({ task, dispatch }: Props) => {
         </div>
         <div className="bg-gray-200 dark:bg-gray-800/30 rounded-b px-6 py-3 flex items-center justify-between">
           <button
+            aria-label="delete task"
             className="hover:underline font-md text-gray-600 dark:text-gray-200 font-semibold mr-"
             onClick={() => dispatch({ type: "DELETE", payload: task.id })}
           >
@@ -59,6 +60,7 @@ export const EditTask = ({ task, dispatch }: Props) => {
           </button>
           <div>
             <button
+              aria-label="cancel editing task"
               className="hover:underline font-md text-gray-600 dark:text-gray-200 font-semibold mr-6"
               onClick={cancelEditing}
             >
@@ -66,6 +68,7 @@ export const EditTask = ({ task, dispatch }: Props) => {
             </button>
             <Button
               variant="black"
+              ariaLabel="save task"
               className="font-semibold"
               isDisabled={form.title.length === 0}
               onClick={() =>

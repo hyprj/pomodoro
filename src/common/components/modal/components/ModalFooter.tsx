@@ -11,6 +11,7 @@ export const ModalFooter = ({ toggleModal, disabled = false }: Props) => {
       <Button
         variant="black"
         className="font-semibold"
+        ariaLabel="close modal"
         onClick={toggleModal}
         isDisabled={disabled}
       >
