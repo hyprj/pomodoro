@@ -9,4 +9,14 @@ export namespace Time {
 
     return `${stringMinutes}:${stringSecs}`;
   };
+  //timestamp to hh:mm
+  export const getHoursWithMinutes = (date: Date) => {
+    const hours = date.getUTCHours();
+    const stringHours = hours < 10 ? `0${hours}` : hours;
+
+    const minutes = date.getMinutes();
+    const stringMinutes = minutes < 10 ? `0${minutes}` : minutes;
+
+    return `${stringHours}:${stringMinutes}`;
+  };
 }

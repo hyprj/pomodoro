@@ -23,6 +23,7 @@ export const Tasks = () => {
       <TasksHeader />
       <TaskList tasks={tasks} dispatch={dispatch} />
       <AddTask dispatch={dispatch} />
+      <TasksSummary tasks={tasks.tasks} />
     </div>
   );
 };

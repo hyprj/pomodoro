@@ -12,6 +12,14 @@ const customJestConfig = {
   moduleDirectories: ["node_modules", "<rootDir>/"],
   testEnvironment: "jest-environment-jsdom",
   modulePathIgnorePatterns: ["cypress"],
+  moduleNameMapper: {
+    "@components/(.*)": ["<rootDir>/src/common/components/$1"],
+    "@hooks/(.*)": ["<rootDir>/src/common/hooks/$1"],
+    "@features/(.*)": ["<rootDir>/src/common/features/$1"],
+    "@pages/(.*)": ["<rootDir>/src/pages/$1"],
+    "@context/(.*)": ["<rootDir>/src/common/context/$1"],
+    "@utils/(.*)": ["<rootDir>/src/common/utils/$1"],
+  },
 };
 
 module.exports = createJestConfig(customJestConfig);

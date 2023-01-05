@@ -9,7 +9,7 @@ const shouldBeLongBreak = (
   return false;
 };
 
-const getNextMode = (
+export const getNextMode = (
   mode: Mode,
   donePomodoros: number,
   longBreakInterval: number
