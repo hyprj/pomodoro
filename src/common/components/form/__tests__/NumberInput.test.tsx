@@ -1,7 +1,7 @@
 import { fireEvent, render } from "@testing-library/react";
 import { NumberInput } from "../NumberInput";
 
-test("should render component with default value set", () => {
+test("should render component with defaultValue set", () => {
   const { getByRole } = render(<NumberInput label="test" defaultValue={10} />);
   const input = getByRole("spinbutton");
   expect(input).toHaveValue(10);

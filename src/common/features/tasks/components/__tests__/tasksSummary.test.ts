@@ -1,5 +1,5 @@
 import { defaultSettings, defaultTimer, ITask } from "@utils/constants";
-import { getFinishTime } from "../TasksSummary";
+import { getFinishTime } from "../utils/tasksSummary";
 
 beforeEach(() => {
   jest.restoreAllMocks();
